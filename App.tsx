@@ -28,16 +28,37 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import InputSection from './src/components/InputSection';
+import Section from './src/components/Section';
+import SectionTitle from './src/components/SectionTitle';
 
 
 
 export default function App (): JSX.Element {
 
   return (
-    <View>
-      <Text>Alo</Text>
-      <InputSection title='Nombre'></InputSection>
+    <ScrollView style={styles.background}>
+      <Section>
+        <>
+          <SectionTitle title='Datos personales'/>
+          <InputSection title='Nombre(s)'/>
+          <InputSection title='Apellido(s)'/>
+        </>
+      </Section>
+      <Section>
+        <>
+          <SectionTitle title='Datos de empresa'/>
+          <InputSection title='Empresa'/>
+        </>
+        
+      </Section>
+      
 
-    </View>
+    </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: "#f9f9d9"
+  }
+})
