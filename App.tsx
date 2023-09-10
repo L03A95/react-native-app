@@ -27,6 +27,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import InputSection from './src/components/InputSection';
 
 
 
@@ -35,7 +36,8 @@ export default function App (): JSX.Element {
   return (
     <View>
       <Text>Alo</Text>
-      <TextInput>aaa</TextInput>
+      <InputSection title='Nombre'></InputSection>
+
     </View>
   )
 }
