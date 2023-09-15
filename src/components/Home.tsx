@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import Section from "./Section";
 import InputSection from "./InputSection";
 import SectionTitle from "./SectionTitle";
@@ -6,7 +6,7 @@ import SectionTitle from "./SectionTitle";
 export default function Home (): JSX.Element {
 
     return (
-        <View>
+        <ScrollView style={styles.background}>
             <Section>
                 <>
                 <SectionTitle title='Datos personales'/>
@@ -22,6 +22,13 @@ export default function Home (): JSX.Element {
                 </>
                 
             </Section>
-        </View>
+        </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    background: {
+      backgroundColor: "#f9f9d9",
+      paddingTop: 20
+    }
+  })
