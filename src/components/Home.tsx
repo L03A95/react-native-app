@@ -31,7 +31,8 @@ export default function Home ({navigation} : {navigation: any}): JSX.Element {
                     <Picker.Item label="Universitario incompleto" value="Universitario incompleto"/>
                     <Picker.Item label="Universitario" value="Universitario"/>
                 </Picker>
-                <InputSection title='Direccion'/>
+                <InputSection title='Localidad y barrio'/>
+                <InputSection title='Direccion y numeración'/>
                 <InputSection title='Numero telefonico'/>
                 <InputSection title='Disponibilidad horaria'/>
                 </>
@@ -39,14 +40,13 @@ export default function Home ({navigation} : {navigation: any}): JSX.Element {
             <Section>
                 <>
                 <SectionTitle title='Datos de empresa'/>
-                <InputSection title='Empresa'/>
-                <InputSection title='Descripción de empleo'/>
                 <Text style={styles.title}>Tipo de empleo</Text>
                 <Picker style={styles.input}>
                     <Picker.Item label="Bajo relacion de dependencia" value="Bajo relacion de dependencia"/>
                     <Picker.Item label="Monotributista / Autonomo" value="Monotributista / Autonomo"/>
                     <Picker.Item label="Empleado municipal" value="Empleado municipal"/>
                 </Picker>
+                <InputSection title='Descripción de empleo'/>
                 </>  
             </Section>
             <Section>
