@@ -13,10 +13,9 @@ export default function App (): JSX.Element {
   return (
 
     <NavigationContainer >
-          <Head></Head>
-        <Stack.Navigator initialRouteName='Clients'>
-          <Stack.Screen name='Home' component={Home} options={{ title: '', headerStyle: { height: 0,} }}/>
-          <Stack.Screen name='Clients' component={Clients} options={{ title: '', headerStyle: { height: 0,} }}/> 
+        <Stack.Navigator initialRouteName='Home'>
+          <Stack.Screen name='Home' component={Home} options={{ title: '', headerShown: false }}/>
+          <Stack.Screen name='Clients' component={Clients} options={{ title: '', headerShown: false }}/> 
         </Stack.Navigator>
       </NavigationContainer>
 

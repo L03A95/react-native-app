@@ -20,6 +20,8 @@ export default function ClientCard ({name, lastname, dni} : ClientProps) {
 
 const styles = StyleSheet.create({
     background: {
-        backgroundColor: ''
+        backgroundColor: '#eee',
+        padding: 20,
+
     }
 })

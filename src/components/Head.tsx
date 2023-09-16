@@ -4,15 +4,15 @@ import Person_logo from "../images/person_logo.png"
 import Write_logo from "../images/write_logo.png"
 
 
-export default function Head () : JSX.Element {
+export default function Head ({navigation} : {navigation: any}) : JSX.Element {
 
     return (
         <View style={styles.background}>
             <Image source={Coppel_logo} style={{ width: 170, height: 70}}/>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Clients')}>
                 <Image source={Person_logo} style={{ width: 20, height: 30}}/>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                 <Image source={Write_logo} style={{ width: 30, height: 30}}/>
             </TouchableOpacity>
         </View>
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        marginBottom: 20
     }
 })
