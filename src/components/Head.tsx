@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, Button, TouchableOpacity} from "react-native";
+import { View, StyleSheet, Image, Button, TouchableOpacity, Text} from "react-native";
 import Coppel_logo from "../images/Coppel.png"
 import Person_logo from "../images/person_logo.png"
 import Write_logo from "../images/write_logo.png"
@@ -15,6 +15,7 @@ export default function Head ({navigation} : {navigation: any}) : JSX.Element {
             <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                 <Image source={Write_logo} style={{ width: 30, height: 30}}/>
             </TouchableOpacity>
+            <Text></Text>
         </View>
     )
 }
