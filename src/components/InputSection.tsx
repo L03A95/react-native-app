@@ -7,15 +7,15 @@ interface InputSectionProps {
 
 export default function InputSection ({title} : InputSectionProps) : JSX.Element {
     return (
-        <View style={styles.background}>
-            <Text style={styles.title}>{title}</Text>
-            <TextInput style={styles.input}></TextInput>
+        <View style={styles.background1}>
+            <Text style={styles.title1}>{title}</Text>
+            <TextInput style={styles.input1}></TextInput>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    background: {
+    background1: {
         borderRadius: 5,
         padding: 5,
         paddingBottom:10,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         marginTop:10
     },
 
-    input: {
+    input1: {
         backgroundColor:'#fff',
         borderRadius: 5,
         height: 40,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
 
-    title: {
+    title1: {
         marginBottom: 10,
         fontSize: 18,
         color: "#0a6cb7",
