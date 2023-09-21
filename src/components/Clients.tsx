@@ -20,18 +20,21 @@ const clientes = [
 
 export default function Clients ({navigation} : {navigation: any}): JSX.Element {
 
-    useEffect(() => {
+        let users : any = []
+
         const storeUsers = store.getString('usuario')
-        var users
+
         if (storeUsers !== undefined) {
             users = JSON.parse(storeUsers)
+        } else {
+            users = []
         }
-    },[])
+
 
     return (
         <ScrollView style={styles.background}>
             <Head navigation={navigation}></Head>
-            {clientes.map((c, i) => {
+            {users.map((c, i) => {
                 return <ClientCard name={c.name} lastname={c.lastname} dni={c.dni} index={i}/>
             })}
         </ScrollView>
