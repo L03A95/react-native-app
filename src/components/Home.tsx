@@ -55,8 +55,8 @@ export default function Home ({navigation} : {navigation: any}): JSX.Element {
     }
 
     const handleButton = () => {
-        // store.clearAll()
-        // return
+        store.clearAll()
+        return
         
         
         if (!user.name) { return null}
