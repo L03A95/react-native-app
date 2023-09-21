@@ -1,16 +1,24 @@
 import {View, Text, StyleSheet, Button} from 'react-native'
+import { store } from '../store/store'
 
 interface ClientProps {
     name: string,
     lastname: string,
     dni: string,
-    index: number
+    index: number,
+    handleUsersView: Function
 }
 
-export default function ClientCard ({name, lastname, dni, index} : ClientProps) {
+export default function ClientCard ({name, lastname, dni, index, handleUsersView} : ClientProps) {
 
-    const handeButton = () => {
-        
+    const handleButton = () => {
+        handleUsersView(dni)
+        const storeUser = store.getString('usuario')
+        if(storeUser !== undefined) {
+            const objectUser = JSON.parse(storeUser)
+            const deletedUser = objectUser.filter((u : any) => u.dni != dni)
+            store.set('usuario', JSON.stringify(deletedUser))
+        }
     }
 
     return (
@@ -20,7 +28,7 @@ export default function ClientCard ({name, lastname, dni, index} : ClientProps) 
                 <Text  style={styles.text}>{lastname} </Text>
             </View>
             <Text  style={styles.dni}>{dni}</Text>
-            <Button title='X' onPress={() => {console.log('HOLA MUNDO')}}></Button>
+            <Button title='X' onPress={() => {handleButton()}}></Button>
         </View>
     )
 }
