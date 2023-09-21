@@ -1,15 +1,17 @@
 import {View, Text, StyleSheet, Button} from 'react-native'
 import { store } from '../store/store'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 interface ClientProps {
     name: string,
     lastname: string,
     dni: string,
     index: number,
-    handleUsersView: Function
+    handleUsersView: Function,
+    navigation: any
 }
 
-export default function ClientCard ({name, lastname, dni, index, handleUsersView} : ClientProps) {
+export default function ClientCard ({name, lastname, dni, index, handleUsersView, navigation} : ClientProps) {
 
     const handleButton = () => {
         handleUsersView(dni)
@@ -27,7 +29,9 @@ export default function ClientCard ({name, lastname, dni, index, handleUsersView
                 <Text style={styles.text}>{name} </Text>
                 <Text  style={styles.text}>{lastname} </Text>
             </View>
-            <Text  style={styles.dni}>{dni}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate(dni)}>
+                <Text  style={styles.dni}>{dni}</Text>
+            </TouchableOpacity>
             <Button title='X' onPress={() => {handleButton()}}></Button>
         </View>
     )

@@ -26,7 +26,7 @@ export default function Clients ({navigation} : {navigation: any}): JSX.Element 
         <ScrollView style={styles.background}>
             <Head navigation={navigation}></Head>
             {usersView == undefined ? <Text style={styles.texto}>No hay usuarios...</Text> : usersView.map((c : any, i : number) => {
-                return <ClientCard name={c.name} lastname={c.lastname} handleUsersView={handleUsersView} dni={c.dni} index={i} key={i}/>
+                return <ClientCard name={c.name} lastname={c.lastname} handleUsersView={handleUsersView} dni={c.dni} index={i} key={i} navigation={navigation}/>
             })}
         </ScrollView>
     )
