@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, Button} from 'react-native'
 
 interface ClientProps {
     name: string,
@@ -9,6 +9,9 @@ interface ClientProps {
 
 export default function ClientCard ({name, lastname, dni, index} : ClientProps) {
 
+    const handeButton = () => {
+        
+    }
 
     return (
         <View style={ index % 2 ? styles.backgroundL : styles.background } >
@@ -17,6 +20,7 @@ export default function ClientCard ({name, lastname, dni, index} : ClientProps) 
                 <Text  style={styles.text}>{lastname} </Text>
             </View>
             <Text  style={styles.dni}>{dni}</Text>
+            <Button title='X' onPress={() => {console.log('HOLA MUNDO')}}></Button>
         </View>
     )
 }
