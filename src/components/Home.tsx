@@ -4,6 +4,7 @@ import SectionTitle from "./SectionTitle";
 import Head from "./Head";
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
+import { store } from "../store/store";
 
 export default function Home ({navigation} : {navigation: any}): JSX.Element {
 
@@ -51,6 +52,25 @@ export default function Home ({navigation} : {navigation: any}): JSX.Element {
 
     const handleUserInput = (input : string, value: string) => {
         setUser({...user, [input]: value})
+    }
+
+    const handleButton = () => {
+        // store.clearAll()
+        // return
+        
+        
+        if (!user.name) { return null}
+        const storeUsers : string | undefined = store.getString('usuario')
+        if(storeUsers !== undefined) {
+            const userObject = JSON.parse(storeUsers)
+            userObject.push(user)
+            store.set('usuario', JSON.stringify(userObject))
+        } else {
+            store.set('usuario', JSON.stringify([user]))
+        }
+        
+        
+        setUser(blankUser)
     }
 
     return (
@@ -221,7 +241,8 @@ export default function Home ({navigation} : {navigation: any}): JSX.Element {
                 </View>
                 </>
             </Section>
-            <Button title="Subir datos" onPress={() => console.log(user)}></Button>
+            <Button title="Subir datos" onPress={() => handleButton()}></Button>
+            <Button title="Console.log de datos" onPress={() => console.log(store.getString("usuario"))}></Button>
         </ScrollView>
     )
 }

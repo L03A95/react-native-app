@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Head from "./Head";
 import ClientCard from "./ClientCard";
+import { useEffect } from "react";
+import { store } from "../store/store";
 
 const clientes = [
     {name: 'Liam Marlon', lastname: 'Perez Lupia', dni: '45898418'},
@@ -17,6 +19,14 @@ const clientes = [
 
 
 export default function Clients ({navigation} : {navigation: any}): JSX.Element {
+
+    useEffect(() => {
+        const storeUsers = store.getString('usuario')
+        var users
+        if (storeUsers !== undefined) {
+            users = JSON.parse(storeUsers)
+        }
+    },[])
 
     return (
         <ScrollView style={styles.background}>
