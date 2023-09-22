@@ -25,13 +25,11 @@ export default function ClientCard ({name, lastname, dni, index, handleUsersView
 
     return (
         <View style={ index % 2 ? styles.backgroundL : styles.background } >
-            <View style={styles.name}>
+            <TouchableOpacity onPress={() => navigation.navigate(dni)} style={styles.name}>
                 <Text style={styles.text}>{name} </Text>
                 <Text  style={styles.text}>{lastname} </Text>
-            </View>
-            <TouchableOpacity onPress={() => navigation.navigate(dni)}>
-                <Text  style={styles.dni}>{dni}</Text>
             </TouchableOpacity>
+                <Text  style={styles.dni}>{dni}</Text>
             <Button title='X' onPress={() => {handleButton()}}></Button>
         </View>
     )
@@ -58,6 +56,7 @@ const styles = StyleSheet.create({
     },
     name: {
         flexDirection: 'row',
+        
     },
     text: {
         fontSize: 18,
