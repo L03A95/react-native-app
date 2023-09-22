@@ -35,7 +35,10 @@ export default function App (): JSX.Element {
             return (
             <Stack.Screen name={user.dni} options={{ title: '', headerShown: false }} key={i}>
               {(props) => <ClientScreen {...props} key={i} name={user.name} lastname={user.lastname} dni={user.dni}
-              birthdate={user.birthdate} civil={user.civil} scholarity={user.scholarity} city={user.city}
+              birthdate={user.birthdate} civil={user.civil} scholarity={user.scholarity} city={user.city} address={user.address}
+              phone={user.phone} disponability={user.disponability} jobType={user.jobType} jobDescription={user.jobDescription}
+              ref1Name={user.ref1Name} ref1Address={user.ref1Address} ref1Phone={user.ref1Phone} ref2Name={user.ref2Name}
+              ref2Address={user.ref2Address} ref2Phone={user.ref2Phone}
               />}
             </Stack.Screen>)
           })}
@@ -44,16 +47,3 @@ export default function App (): JSX.Element {
 
   )
 }
-
-//   address: '',
-//   phone: '',
-//   disponability: '',
-//   jobType: 'Bajo relacion de dependencia',
-//   jobDescription: '',
-//   ref1Name: '',
-//   ref1Address: '',
-//   ref1Phone: '',
-//   ref2Name: '',
-//   ref2Address: '',
-//   ref2Phone: ''
-// }
