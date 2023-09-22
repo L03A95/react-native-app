@@ -6,7 +6,12 @@ import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { store } from "../store/store";
 
-export default function Home ({navigation} : {navigation: any}): JSX.Element {
+interface homeProps {
+    navigation: any,
+    userScreenHandler: Function
+}
+
+export default function Home ({navigation, userScreenHandler} : homeProps): JSX.Element {
 
     const [user, setUser] = useState({
         name: '',
@@ -69,7 +74,7 @@ export default function Home ({navigation} : {navigation: any}): JSX.Element {
             store.set('usuario', JSON.stringify([user]))
         }
         
-        
+        userScreenHandler(user)
         setUser(blankUser)
     }
 
@@ -242,7 +247,7 @@ export default function Home ({navigation} : {navigation: any}): JSX.Element {
                 </>
             </Section>
             <Button title="Subir datos" onPress={() => handleButton()}></Button>
-            <Button title="Console.log de datos" onPress={() => console.log(store.getString("usuario"))}></Button>
+            {/* <Button title="Console.log de datos" onPress={() => console.log(store.getString("usuario"))}></Button> */}
         </ScrollView>
     )
 }
