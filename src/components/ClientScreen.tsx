@@ -1,5 +1,7 @@
 import { ScrollView, Text, StyleSheet, View, Image, Button } from "react-native";
 import Coppel_logo from "../images/Coppel.png"
+import Section from "./Section";
+import SectionTitle from "./SectionTitle";
 
 interface clientProps {
     navigation: any,
@@ -31,28 +33,47 @@ export default function ClientScreen ({navigation, name, lastname, dni, civil, s
                     <Button title="<" onPress={() => navigation.navigate("Clients")}></Button>
                 </View>
                 {/* info personal */}
-                <Text>{name}</Text>
-                <Text>{lastname}</Text>
-                <Text>{dni}</Text>
-                <Text>{civil}</Text>
-                <Text>{scholarity}</Text>
-                <Text>{city}</Text>
-                <Text>{address}</Text>
-                <Text>{phone}</Text>
-                <Text>{disponability}</Text>
+                <Section>
+                    <>
+                    <SectionTitle title="Datos personales"></SectionTitle>
+                    <Text style={styles.text}><Text style={styles.data}>Nombre:</Text> {name}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Apellido:</Text> {lastname}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>DNI:</Text> {dni}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Estado civil:</Text> {civil}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Escolaridad:</Text> {scholarity}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Barrio y localidad:</Text> {city}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Dirección y numeración:</Text> {address}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Número de teléfono:</Text> {phone}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Disponibilidad horaria:</Text> {disponability}</Text>
+                    </>
+                </Section>
 
                 {/* info de empleo */}
-                <Text>{jobType}</Text>
-                <Text>{jobDescription}</Text>
+                <Section>
+                    <>
+                    <SectionTitle title="Datos de empleo"></SectionTitle>
+                    <Text style={styles.text}><Text style={styles.data}>Típo de empléo:</Text> {jobType}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Descripción de empléo:</Text> {jobDescription}</Text>
+                    </>
+                </Section>
 
                 {/* info referentes 1 y 2 */}
-                <Text>{ref1Name}</Text>
-                <Text>{ref1Address}</Text>
-                <Text>{ref1Phone}</Text>
-
-                <Text>{ref2Name}</Text>
-                <Text>{ref2Address}</Text>
-                <Text>{ref2Phone}</Text>
+                <Section>
+                    <>
+                    <SectionTitle title="Datos de referente 1"></SectionTitle>
+                    <Text style={styles.text}><Text style={styles.data}>Nombre:</Text> {ref1Name}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Dirección:</Text> {ref1Address}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Número de teléfono:</Text> {ref1Phone}</Text>
+                    </>
+                </Section>
+                <Section>
+                    <>
+                    <SectionTitle title="Datos de referente 2"></SectionTitle>
+                    <Text style={styles.text}><Text style={styles.data}>Nombre:</Text> {ref2Name}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Dirección:</Text> {ref2Address}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Número de teléfono:</Text> {ref2Phone}</Text>
+                    </>
+                </Section>
             </ScrollView>
 }
 
@@ -67,5 +88,18 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-around",
         marginBottom: 20
+    },
+    text: {
+        fontSize: 16,
+        color:'#444',
+        backgroundColor: "#f9f9d9",
+        padding: 6,
+        fontWeight: '600',
+        marginVertical: 3
+    },
+    data: {
+        backgroundColor: "#0a6cb7",
+        margin: 2,
+        color: '#fff'
     }
 })
