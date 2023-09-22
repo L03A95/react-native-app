@@ -60,11 +60,9 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
     }
 
     const handleButton = () => {
-        // store.clearAll()
-        // return
-        
-        
+
         if (!user.name) { return null}
+        if (!user.dni) {return null}
         const storeUsers : string | undefined = store.getString('usuario')
         if(storeUsers !== undefined) {
             const userObject = JSON.parse(storeUsers)
@@ -86,7 +84,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 <SectionTitle title='Datos personales'/>
 
                 <View style={styles.background1}>
-                    <Text style={styles.title1}>Nombre(s)</Text>
+                    <Text style={styles.title1}>Nombre(s)*</Text>
                     <TextInput
                     style={styles.input1}
                     value={user.name}
@@ -95,7 +93,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 </View>
 
                 <View style={styles.background1}>
-                    <Text style={styles.title1}>Apellido(s)</Text>
+                    <Text style={styles.title1}>Apellido(s)*</Text>
                     <TextInput
                     style={styles.input1}
                     value={user.lastname}
@@ -104,7 +102,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 </View>
 
                 <View style={styles.background1}>
-                    <Text style={styles.title1}>DNI</Text>
+                    <Text style={styles.title1}>DNI*</Text>
                     <TextInput
                     style={styles.input1}
                     value={user.dni}
@@ -113,7 +111,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 </View>
 
                 <View style={styles.background1}>
-                    <Text style={styles.title1}>Fecha de nacimiento</Text>
+                    <Text style={styles.title1}>Fecha de nacimiento*</Text>
                     <TextInput
                     style={styles.input1}
                     value={user.birthdate}
@@ -247,7 +245,6 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 </>
             </Section>
             <Button title="Subir datos" onPress={() => handleButton()}></Button>
-            {/* <Button title="Console.log de datos" onPress={() => console.log(store.getString("usuario"))}></Button> */}
         </ScrollView>
     )
 }
