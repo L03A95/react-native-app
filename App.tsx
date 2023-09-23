@@ -17,7 +17,7 @@ export default function App (): JSX.Element {
     var objectUsers = JSON.parse(storeUsers)
   }
 
-  const [userView, setUserView] = useState(objectUsers)
+  const [userView, setUserView] = useState(objectUsers ? [...objectUsers] : [])
 
   const userScreenHandler = (newUser : any) => {
     setUserView([...userView, newUser])

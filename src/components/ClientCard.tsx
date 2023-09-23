@@ -56,14 +56,15 @@ const styles = StyleSheet.create({
     },
     name: {
         flexDirection: 'row',
-        
     },
     text: {
         fontSize: 18,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: '#666'
     },
     dni: {
         fontSize: 18,
-        fontWeight: '900'
+        fontWeight: '900',
+        color: '#333'
     }
 })

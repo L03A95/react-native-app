@@ -66,6 +66,9 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
         const storeUsers : string | undefined = store.getString('usuario')
         if(storeUsers !== undefined) {
             const userObject = JSON.parse(storeUsers)
+            if(userObject.find((u : any) => u.dni == user.dni && u.dni != '')) {
+                return null
+            }
             userObject.push(user)
             store.set('usuario', JSON.stringify(userObject))
         } else {
@@ -136,7 +139,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 </Picker>
 
                 <View style={styles.background1}>
-                    <Text style={styles.title1}>Localidad y barrio</Text>
+                    <Text style={styles.title1}>Barrio y localidad</Text>
                     <TextInput
                     style={styles.input1}
                     value={user.city}
