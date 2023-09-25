@@ -22,10 +22,17 @@ export default function Clients ({navigation} : {navigation: any}): JSX.Element 
         }
 
 
+        const words = ['No cargaste náda, ponete las pilas...','¿Probáste haciendo solicitúdes?', 'Fijate si subiste bien esos dátos...', '¡Hóy se llega a 12!', 'Error 404, cliéntes not found...', 'Dale que quiero ver esto lléno al final del día...', 'Y nádie vino...', '¡SI SE PUÉDE, SI SE PUÉDE!', 'Menos celú, mas solicitúdes...', '¿No hay nádie en la cálle?']
+
+        const inspirationHandler = () => {
+            const random : number = Math.random()
+            return words[Math.floor( random * 10)]
+        }
+
     return (
         <ScrollView style={styles.background}>
             <Head navigation={navigation}></Head>
-            {usersView == undefined ? <Text style={styles.texto}>No hay usuarios...</Text> : usersView.map((c : any, i : number) => {
+            {usersView == false ? <Text style={styles.texto}>{inspirationHandler()}</Text> : usersView.map((c : any, i : number) => {
                 return <ClientCard name={c.name} lastname={c.lastname} handleUsersView={handleUsersView} dni={c.dni} index={i} key={i} navigation={navigation}/>
             })}
         </ScrollView>
