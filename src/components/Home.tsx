@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, Text, View, TextInput, Button, TouchableOpacity, Modal } from "react-native";
 import Section from "./Section";
 import SectionTitle from "./SectionTitle";
 import Head from "./Head";
@@ -6,6 +6,7 @@ import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { store } from "../store/store";
 import Footer from "./Footer";
+import Succes from "./popups/Succes";
 
 interface homeProps {
     navigation: any,
@@ -13,6 +14,8 @@ interface homeProps {
 }
 
 export default function Home ({navigation, userScreenHandler} : homeProps): JSX.Element {
+
+    const [modalVisible, setModalVisible] = useState(false);
 
     const [user, setUser] = useState({
         name: '',
@@ -78,6 +81,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
             store.set('usuario', JSON.stringify([user]))
         }
         
+        setModalVisible(true)
         userScreenHandler(user)
         setUser(blankUser)
     }
@@ -261,6 +265,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
             <TouchableOpacity onPress={() => handleButton()}>
                 <Text style={styles.btn}>Subir Datos</Text>
             </TouchableOpacity>
+            <Succes modalVisible={modalVisible} setModalVisible={setModalVisible}></Succes>
             <Footer/>
         </ScrollView>
     )

@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         flexWrap: "wrap",
-    
     },
     text: {
         margin: 5,
