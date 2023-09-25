@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 const Succes = ({modalVisible, setModalVisible} : {modalVisible : boolean, setModalVisible : Function}) => {
@@ -15,11 +14,11 @@ const Succes = ({modalVisible, setModalVisible} : {modalVisible : boolean, setMo
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <Text style={styles.modalText}>¡Usuario subido exitosamente!</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Cerrar</Text>
             </Pressable>
           </View>
         </View>
@@ -55,9 +54,6 @@ const styles = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
   buttonClose: {
     backgroundColor: '#2196F3',
   },
@@ -69,7 +65,8 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    color: '#000'
+    color: '#000',
+    fontSize: 24
   },
 });
 

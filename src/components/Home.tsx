@@ -7,6 +7,7 @@ import { useState } from "react";
 import { store } from "../store/store";
 import Footer from "./Footer";
 import Succes from "./popups/Succes";
+import Error from "./popups/Error";
 
 interface homeProps {
     navigation: any,
@@ -16,6 +17,8 @@ interface homeProps {
 export default function Home ({navigation, userScreenHandler} : homeProps): JSX.Element {
 
     const [modalVisible, setModalVisible] = useState(false);
+
+    const [errorVisible, setErrorVisible] = useState(false)
 
     const [user, setUser] = useState({
         name: '',
@@ -67,8 +70,14 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
 
     const handleButton = () => {
 
-        if (!user.name) { return null}
-        if (!user.dni) {return null}
+        if (!user.name) { 
+            setErrorVisible(true)
+            return null
+        }
+        if (!user.dni) {
+            setErrorVisible(true)
+            return null
+        }
         const storeUsers : string | undefined = store.getString('usuario')
         if(storeUsers !== undefined) {
             const userObject = JSON.parse(storeUsers)
@@ -265,6 +274,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
             <TouchableOpacity onPress={() => handleButton()}>
                 <Text style={styles.btn}>Subir Datos</Text>
             </TouchableOpacity>
+            <Error modalVisible={errorVisible} setModalVisible={setErrorVisible}/>
             <Succes modalVisible={modalVisible} setModalVisible={setModalVisible}></Succes>
             <Footer/>
         </ScrollView>
