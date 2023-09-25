@@ -5,6 +5,7 @@ import Head from "./Head";
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { store } from "../store/store";
+import Footer from "./Footer";
 
 interface homeProps {
     navigation: any,
@@ -258,9 +259,9 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 </>
             </Section>
             <TouchableOpacity onPress={() => handleButton()}>
-                <Text style={styles.btn}>Cargar Datos</Text>
+                <Text style={styles.btn}>Subir Datos</Text>
             </TouchableOpacity>
-           
+            <Footer/>
         </ScrollView>
     )
 }
@@ -316,6 +317,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         marginBottom: 20,
         marginTop: 10,
-        borderRadius: 5
+        borderRadius: 5,
+        fontWeight: '800'
     }
   })

@@ -9,11 +9,11 @@ export default function Head ({navigation} : {navigation: any}) : JSX.Element {
     return (
         <View style={styles.background}>
             <Image source={Coppel_logo} style={{ width: 170, height: 70}}/>
-            <TouchableOpacity onPress={() => navigation.navigate('Clients')}>
-                <Image source={Person_logo} style={{ width: 20, height: 30}}/>
+            <TouchableOpacity onPress={() => navigation.navigate('Clients')} style={styles.touchableUser}>
+                <Image source={Person_logo} style={styles.userLogo}/>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                <Image source={Write_logo} style={{ width: 30, height: 30}}/>
+                <Image source={Write_logo} style={styles.writeImg}/>
             </TouchableOpacity>
             <Text></Text>
         </View>
@@ -28,5 +28,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-around",
         marginBottom: 20
+    },
+    writeImg: {
+        width: 20,
+        height: 20,
+        padding: 18
+    },
+    userLogo: { 
+        width: 25,
+        height: 32
+    },
+    touchableUser: {
+        padding: 10
     }
 })
