@@ -17,6 +17,7 @@ interface clientProps {
     disponability: string,
     jobType: string,
     jobDescription: string,
+    jobEarning: string,
     ref1Name: string,
     ref1Address: string,
     ref1Phone: string,
@@ -25,7 +26,7 @@ interface clientProps {
     ref2Phone: string
 }
 
-export default function ClientScreen ({navigation, name, lastname, dni, civil, scholarity, city, address, phone, disponability, jobType, jobDescription, ref1Name, ref1Address, ref1Phone, ref2Name, ref2Address, ref2Phone} : clientProps) : JSX.Element {
+export default function ClientScreen ({navigation, name, lastname, dni, civil, scholarity, city, address, phone, disponability, jobType, jobDescription, jobEarning, ref1Name, ref1Address, ref1Phone, ref2Name, ref2Address, ref2Phone} : clientProps) : JSX.Element {
 
     return  <ScrollView style={styles.background}>
                 <View style={styles.backgroundHeader}>
@@ -53,6 +54,7 @@ export default function ClientScreen ({navigation, name, lastname, dni, civil, s
                     <>
                     <SectionTitle title="Datos de empleo"></SectionTitle>
                     <Text style={styles.text}><Text style={styles.data}>Típo de empléo:</Text> {jobType}</Text>
+                    <Text style={styles.text}><Text style={styles.data}>Monto de ingresos:</Text> {jobEarning}</Text>
                     <Text style={styles.text}><Text style={styles.data}>Descripción de empléo:</Text> {jobDescription}</Text>
                     </>
                 </Section>

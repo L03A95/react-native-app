@@ -26,6 +26,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
         disponability: '',
         jobType: 'Bajo relacion de dependencia',
         jobDescription: '',
+        jobEarning: '',
         ref1Name: '',
         ref1Address: '',
         ref1Phone: '',
@@ -47,6 +48,7 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
         disponability: '',
         jobType: 'Bajo relacion de dependencia',
         jobDescription: '',
+        jobEarning: '',
         ref1Name: '',
         ref1Address: '',
         ref1Phone: '',
@@ -184,6 +186,14 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                     <Picker.Item label="Monotributista / Autonomo" value="Monotributista / Autonomo"/>
                     <Picker.Item label="Empleado municipal" value="Empleado municipal"/>
                 </Picker>
+
+                <View style={styles.background1}>
+                    <Text style={styles.title1}>Monto de ingresos</Text>
+                    <TextInput style={styles.input1}
+                    value={user.jobEarning}
+                    onChangeText={(text) => handleUserInput("jobEarning", text)}
+                    ></TextInput>
+                </View>
 
                 <View style={styles.background1}>
                     <Text style={styles.title1}>Descripción de empleo</Text>

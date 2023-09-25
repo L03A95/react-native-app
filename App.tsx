@@ -37,6 +37,7 @@ export default function App (): JSX.Element {
               {(props) => <ClientScreen {...props} key={i} name={user.name} lastname={user.lastname} dni={user.dni}
               birthdate={user.birthdate} civil={user.civil} scholarity={user.scholarity} city={user.city} address={user.address}
               phone={user.phone} disponability={user.disponability} jobType={user.jobType} jobDescription={user.jobDescription}
+              jobEarning={user.jobEarning}
               ref1Name={user.ref1Name} ref1Address={user.ref1Address} ref1Phone={user.ref1Phone} ref2Name={user.ref2Name}
               ref2Address={user.ref2Address} ref2Phone={user.ref2Phone}
               />}
