@@ -1,6 +1,7 @@
-import {View, Text, StyleSheet, Button} from 'react-native'
+import {View, Text, StyleSheet, Button, Image} from 'react-native'
 import { store } from '../store/store'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import trash_logo from '../images/basura.png'
 
 interface ClientProps {
     name: string,
@@ -30,7 +31,9 @@ export default function ClientCard ({name, lastname, dni, index, handleUsersView
                 <Text  style={styles.text}>{lastname} </Text>
             </TouchableOpacity>
                 <Text  style={styles.dni}>{dni}</Text>
-            <Button title='X' onPress={() => {handleButton()}}></Button>
+                <TouchableOpacity onPress={() => {handleButton()}} style={styles.logo_wrapper}>
+                    <Image source={trash_logo} style={styles.logo}></Image>
+                </TouchableOpacity>
         </View>
     )
 }
@@ -43,7 +46,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         justifyContent: "space-between",
         borderRadius: 5,
-        marginVertical: 10
+        marginVertical: 10,
+        alignItems: 'center'
     },
     background: {
         backgroundColor: "#ffda27",
@@ -52,19 +56,29 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         justifyContent: "space-between",
         borderRadius: 5,
-        marginVertical: 10
+        marginVertical: 10,
+        alignItems: 'center'
     },
     name: {
         flexDirection: 'row',
     },
     text: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: '500',
         color: '#666'
     },
     dni: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: '900',
         color: '#333'
+    },
+    logo: {
+        width: 25,
+        height: 25
+    },
+    logo_wrapper: {
+        backgroundColor: "#0a6cb7",
+        padding: 5,
+        borderRadius: 5
     }
 })
