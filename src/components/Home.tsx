@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { ScrollView, StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from "react-native";
 import Section from "./Section";
 import SectionTitle from "./SectionTitle";
 import Head from "./Head";
@@ -257,7 +257,10 @@ export default function Home ({navigation, userScreenHandler} : homeProps): JSX.
                 </View>
                 </>
             </Section>
-            <Button title="Subir datos" onPress={() => handleButton()}></Button>
+            <TouchableOpacity onPress={() => handleButton()}>
+                <Text style={styles.btn}>Cargar Datos</Text>
+            </TouchableOpacity>
+           
         </ScrollView>
     )
 }
@@ -303,5 +306,16 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#0a6cb7",
         fontWeight: "800"
+    },
+    btn:{
+        backgroundColor: "#0a6cb7",
+        color: '#fff',
+        fontSize: 24,
+        padding: 10,
+        textAlign: "center",
+        marginHorizontal: 10,
+        marginBottom: 20,
+        marginTop: 10,
+        borderRadius: 5
     }
   })
